@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "year": 2023,
+    "paper": "GS1",
+    "topic": "Modern History",
+    "subtopic": "Indian National Movement",
+    "tags": ["National Movement", "Gandhi", "Non-Cooperation"],
+    "marks": 10,
+    "type": "Long Answer",
+    "text": "Examine the causes and consequences of the Non-Cooperation Movement in India."
+  },
+  {
+    "id": 2,
+    "year": 2022,
+    "paper": "GS2",
+    "topic": "Polity",
+    "subtopic": "Directive Principles",
+    "tags": ["Constitution", "DPSP"],
+    "marks": 8,
+    "type": "Short Answer",
+    "text": "Discuss the role of Directive Principles of State Policy in achieving the goals of the Indian Constitution."
+  },
+  {
+    "id": 3,
+    "year": 2021,
+    "paper": "Essay",
+    "topic": "Environment",
+    "subtopic": "Climate Change",
+    "tags": ["Environment", "Sustainability"],
+    "marks": 50,
+    "type": "Essay",
+    "text": "India’s Climate Challenge: Balancing Growth and Sustainability."
+  }
+]
