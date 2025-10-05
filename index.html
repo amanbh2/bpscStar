@@ -1,50 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BPSC STAR</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <!-- Header Section -->
-  <header class="navbar">
-    <h1>BPSC STAR</h1>
-    <p>Search and Filter BPSC Mains Previous Year Questions</p>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BPSC STAR</title>
 
-  <!-- Filter Controls -->
-  <section class="filters">
-    <input
-      type="text"
-      id="searchInput"
-      placeholder="🔍 Search keywords, topics, or tags..."
-      aria-label="Search questions"
+    <!-- Google Material Symbols Outlined -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
     />
 
-    <select id="examFilter" aria-label="Filter by exam year">
-      <option value="All">All Exams</option>
-    </select>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-    <select id="paperFilter" aria-label="Filter by paper">
-      <option value="All">All Papers</option>
-    </select>
+  <body>
+    <!-- Header Section -->
+    <header class="navbar">
+      <h1>BPSC STAR</h1>
+      <p>Search and Filter BPSC Mains Previous Year Questions</p>
+    </header>
 
-    <select id="topicFilter" aria-label="Filter by topic">
-      <option value="All">All Topics</option>
-    </select>
+    <!-- Filter Controls -->
+    <section class="filters">
+      <div class="search-wrapper">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search keywords, topics, or tags..."
+          aria-label="Search questions"
+        />
+        <button class="filters-toggle" id="filtersToggle">
+          <span id="toggleIcon" class="material-symbols-outlined"
+            >settings</span
+          >
+        </button>
+      </div>
 
-    <button id="clearFilters" class="clear-btn">🧹 Clear Filters</button>
-  </section>
+      <div class="filters-collapse" id="filtersCollapse">
+        <select id="examFilter" aria-label="Filter by exam year">
+          <option value="All">All Exams</option>
+        </select>
 
-  <!-- Results Section -->
-  <main id="results" class="results"></main>
+        <select id="paperFilter" aria-label="Filter by paper">
+          <option value="All">All Papers</option>
+        </select>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>Made with ❤️ for BPSC aspirants | Aman Bhaskar</p>
-  </footer>
+        <select id="topicFilter" aria-label="Filter by topic">
+          <option value="All">All Topics</option>
+        </select>
+      </div>
+    </section>
 
-  <script src="script.js"></script>
-</body>
+    <!-- Results Section -->
+    <main id="results" class="results"></main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Made with ❤️ for BPSC aspirants | Aman Bhaskar</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>

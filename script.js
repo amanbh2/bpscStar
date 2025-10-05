@@ -4,29 +4,51 @@ const searchInput = document.getElementById("searchInput");
 const examFilter = document.getElementById("examFilter");
 const paperFilter = document.getElementById("paperFilter");
 const topicFilter = document.getElementById("topicFilter");
+const filtersCollapse = document.getElementById("filtersCollapse");
+const filtersToggle = document.getElementById("filtersToggle");
+const toggleIcon = document.getElementById("toggleIcon");
 
+// Toggle filters panel & change icon
+filtersToggle.addEventListener("click", () => {
+  const isOpen = filtersCollapse.classList.contains("open");
+
+  if (!isOpen) {
+    filtersCollapse.classList.add("open");
+    toggleIcon.textContent = "reset_settings";
+  } else {
+    // Reset filters
+    searchInput.value = "";
+    examFilter.value = "All";
+    paperFilter.value = "All";
+    topicFilter.value = "All";
+    filterQuestions();
+
+    filtersCollapse.classList.remove("open");
+    toggleIcon.textContent = "settings";
+  }
+});
+
+// Load questions
 async function loadQuestions() {
   try {
     const res = await fetch("data/questions.json");
     if (!res.ok) throw new Error("Failed to load questions.json");
 
     allQuestions = await res.json();
-
     populateFilters();
-    displayResults(allQuestions);
+    filterQuestions();
   } catch (err) {
     resultsContainer.innerHTML = `<p style='color:red;text-align:center;'>⚠️ Error loading questions: ${err.message}</p>`;
     console.error(err);
   }
 }
 
+// Populate dropdowns
 function populateFilters() {
-  // Extract unique values
   const exams = [...new Set(allQuestions.map(q => q.exam))].sort().reverse();
   const papers = [...new Set(allQuestions.map(q => q.paper))].sort();
   const topics = [...new Set(allQuestions.map(q => q.topic))].sort();
 
-  // Populate dropdowns
   examFilter.innerHTML = "<option value='All'>All Exams</option>";
   paperFilter.innerHTML = "<option value='All'>All Papers</option>";
   topicFilter.innerHTML = "<option value='All'>All Topics</option>";
@@ -36,6 +58,7 @@ function populateFilters() {
   topics.forEach(t => topicFilter.innerHTML += `<option value='${t}'>${t}</option>`);
 }
 
+// Filter questions
 function filterQuestions() {
   const q = searchInput.value.toLowerCase();
   const ef = examFilter.value;
@@ -48,7 +71,6 @@ function filterQuestions() {
     if (tf !== "All" && item.topic !== tf) return false;
 
     if (!q) return true;
-
     const haystack = `${item.question} ${item.topic} ${item.subtopic} ${item.tags.join(" ")}`.toLowerCase();
     return haystack.includes(q);
   });
@@ -56,6 +78,7 @@ function filterQuestions() {
   displayResults(filtered);
 }
 
+// Display results
 function displayResults(list) {
   resultsContainer.innerHTML = "";
   if (list.length === 0) {
@@ -77,11 +100,12 @@ function displayResults(list) {
     resultsContainer.appendChild(card);
   });
 
-  // Enable tag-based quick search
   document.querySelectorAll(".tag").forEach(tagEl => {
     tagEl.addEventListener("click", e => {
       searchInput.value = e.target.dataset.tag;
       filterQuestions();
+      filtersCollapse.classList.remove("open");
+      toggleIcon.textContent = "settings";
     });
   });
 }
@@ -91,15 +115,6 @@ searchInput.addEventListener("input", filterQuestions);
 examFilter.addEventListener("change", filterQuestions);
 paperFilter.addEventListener("change", filterQuestions);
 topicFilter.addEventListener("change", filterQuestions);
-
-document.getElementById("clearFilters").addEventListener("click", () => {
-  searchInput.value = "";
-  examFilter.value = "All";
-  paperFilter.value = "All";
-  topicFilter.value = "All";
-  filterQuestions();
-});
-
 
 // Load data on page load
 loadQuestions();
