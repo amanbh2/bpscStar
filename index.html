@@ -3,35 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BPSC PYQ Search</title>
+  <title>BPSC STAR</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Header Section -->
   <header class="navbar">
-    <h1>BPSC PYQ Explorer</h1>
-    <p>Search and Filter Previous Year Questions</p>
+    <h1>BPSC STAR</h1>
+    <p>Search and Filter BPSC Mains Previous Year Questions</p>
   </header>
 
+  <!-- Filter Controls -->
   <section class="filters">
-    <input type="text" id="searchInput" placeholder="🔍 Search keywords, topics, or tags..." />
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="🔍 Search keywords, topics, or tags..."
+      aria-label="Search questions"
+    />
 
-    <select id="yearFilter">
-      <option value="All">All Years</option>
+    <select id="examFilter" aria-label="Filter by exam year">
+      <option value="All">All Exams</option>
     </select>
 
-    <select id="paperFilter">
+    <select id="paperFilter" aria-label="Filter by paper">
       <option value="All">All Papers</option>
     </select>
 
-    <select id="topicFilter">
+    <select id="topicFilter" aria-label="Filter by topic">
       <option value="All">All Topics</option>
     </select>
+
+    <button id="clearFilters" class="clear-btn">🧹 Clear Filters</button>
   </section>
 
-  <main id="results"></main>
+  <!-- Results Section -->
+  <main id="results" class="results"></main>
 
+  <!-- Footer -->
   <footer class="footer">
-    <p>Made with ❤️ for BPSC aspirants | Aman’s PYQ Portal</p>
+    <p>Made with ❤️ for BPSC aspirants | Aman Bhaskar</p>
   </footer>
 
   <script src="script.js"></script>

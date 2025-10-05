@@ -1,35 +1,47 @@
 [
   {
     "id": 1,
-    "year": 2023,
-    "paper": "GS1",
-    "topic": "Modern History",
-    "subtopic": "Indian National Movement",
-    "tags": ["National Movement", "Gandhi", "Non-Cooperation"],
-    "marks": 10,
-    "type": "Long Answer",
-    "text": "Examine the causes and consequences of the Non-Cooperation Movement in India."
+    "exam": "70th_BPSC_CCE_Mains",
+    "paper": "GS-II",
+    "question": "Discuss how the significant milestones, like Chandrayaan and Mangalyaan have enhanced the significance of India's space program globally? Also mention how these space missions are helpful in sectors like agriculture, disaster management and urban planning.",
+    "topic": "Science & Technology",
+    "subtopic": "Space Technology",
+    "tags": [
+      "SpaceTechnology",
+      "ISRO",
+      "Agriculture",
+      "SpaceMissions",
+      "DisasterManagement",
+      "UrbanPlanning",
+      "Chandrayaan",
+      "Mangalyaan"
+    ]
   },
   {
     "id": 2,
-    "year": 2022,
-    "paper": "GS2",
-    "topic": "Polity",
-    "subtopic": "Directive Principles",
-    "tags": ["Constitution", "DPSP"],
-    "marks": 8,
-    "type": "Short Answer",
-    "text": "Discuss the role of Directive Principles of State Policy in achieving the goals of the Indian Constitution."
+    "exam": "66th_BPSC_CCE_Mains",
+    "paper": "GS-II",
+    "question": "At present, search of life on another planet has been one of the objectives of scientists of several nations around the world. Discuss the developments of India in space research towards this objective particularly in the 21st century.",
+    "topic": "Science & Technology",
+    "subtopic": "Space Technology",
+    "tags": ["SpaceTechnology", "ISRO", "SpaceMissions", "Mangalyaan"]
   },
   {
     "id": 3,
-    "year": 2021,
-    "paper": "Essay",
-    "topic": "Environment",
-    "subtopic": "Climate Change",
-    "tags": ["Environment", "Sustainability"],
-    "marks": 50,
-    "type": "Essay",
-    "text": "India’s Climate Challenge: Balancing Growth and Sustainability."
+    "exam": "63rd_BPSC_CCE_Mains",
+    "paper": "GS-II",
+    "question": "What progress India has made in the field of space satellite launching? What are the advantage and disadvantage of launching multi-satellites in space? How does the entry in this field help India to strengthen its economy?",
+    "topic": "Science & Technology",
+    "subtopic": "Space Technology",
+    "tags": ["SpaceTechnology", "ISRO", "SpaceMissions"]
+  },
+  {
+    "id": 4,
+    "exam": "60-62nd_BPSC_CCE_Mains",
+    "paper": "GS-II",
+    "question": "How do you see achievements of Indian Space Research Organisation (ISRO). What are their next exciting targets.",
+    "topic": "Science & Technology",
+    "subtopic": "Space Technology",
+    "tags": ["SpaceTechnology", "ISRO", "SpaceMissions"]
   }
 ]
