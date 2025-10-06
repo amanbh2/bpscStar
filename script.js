@@ -1,3 +1,41 @@
+// ==================== Starry Background & Moon ====================
+const STAR_COUNT = 150; // Number of stars
+const starsContainer = document.createElement("div");
+starsContainer.id = "starsContainer";
+document.body.prepend(starsContainer);
+
+function createStars() {
+  starsContainer.innerHTML = ""; // Clear previous stars
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+
+  for (let i = 0; i < STAR_COUNT; i++) {
+    const star = document.createElement("div");
+    star.className = "star";
+    const size = Math.random() * 2 + 1; // Small to medium stars
+    star.style.width = `${size}px`;
+    star.style.height = `${size}px`;
+    star.style.top = `${Math.random() * height}px`;
+    star.style.left = `${Math.random() * width}px`;
+    star.style.opacity = Math.random();
+    starsContainer.appendChild(star);
+  }
+
+  // Add moon
+  const moon = document.createElement("div");
+  moon.id = "moon";
+  moon.style.top = `${Math.random() * 100 + 50}px`;
+  moon.style.left = `${Math.random() * (width - 100)}px`;
+  starsContainer.appendChild(moon);
+}
+
+// Initial star creation
+createStars();
+
+// Recreate stars on window resize
+window.addEventListener("resize", createStars);
+
+// ==================== Question Search & Filter ====================
 let allQuestions = [];
 const resultsContainer = document.getElementById("results");
 const searchInput = document.getElementById("searchInput");
@@ -11,18 +49,15 @@ const toggleIcon = document.getElementById("toggleIcon");
 // Toggle filters panel & change icon
 filtersToggle.addEventListener("click", () => {
   const isOpen = filtersCollapse.classList.contains("open");
-
   if (!isOpen) {
     filtersCollapse.classList.add("open");
     toggleIcon.textContent = "reset_settings";
   } else {
-    // Reset filters
     searchInput.value = "";
     examFilter.value = "All";
     paperFilter.value = "All";
     topicFilter.value = "All";
     filterQuestions();
-
     filtersCollapse.classList.remove("open");
     toggleIcon.textContent = "settings";
   }
@@ -33,7 +68,6 @@ async function loadQuestions() {
   try {
     const res = await fetch("data/questions.json");
     if (!res.ok) throw new Error("Failed to load questions.json");
-
     allQuestions = await res.json();
     populateFilters();
     filterQuestions();
